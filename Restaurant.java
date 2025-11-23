@@ -7,14 +7,34 @@ interface MenuItem {
     String getDescription();
 }//we mn hena nshof el menu childs n3melohom abstract
 
+abstract class MenuFactory {
+    public abstract List<MenuItem> getStarters();
+    public abstract List<MenuItem> getMainCourse();
+    public abstract List<MenuItem> getDesserts();
+    public abstract List<MenuItem> getBeverages();
 
+    public static MenuFactory getFactory(String menuType) { }
+}
 
-class SimpleMenuItem implements MenuItem {
-    public SimpleMenuItem(String name, double price, String description) { }
-    public String getName() {return ""; }
-    public double getPrice() { return 0; }
-    public String getDescription() { return ""; }
-    public String toString() { return "";  }
+class VegetarianMenuFactory extends MenuFactory {
+    public List<MenuItem> getStarters() { }
+    public List<MenuItem> getMainCourse() { }
+    public List<MenuItem> getDesserts() { }
+    public List<MenuItem> getBeverages() { }
+}
+
+class NonVegetarianMenuFactory extends MenuFactory {
+    public List<MenuItem> getStarters() { }
+    public List<MenuItem> getMainCourse() { }
+    public List<MenuItem> getDesserts() { }
+    public List<MenuItem> getBeverages() { }
+}
+
+class KidsMenuFactory extends MenuFactory {
+    public List<MenuItem> getStarters() { }
+    public List<MenuItem> getMainCourse() { }
+    public List<MenuItem> getDesserts() { }
+    public List<MenuItem> getBeverages() { }
 }
 abstract class MenuType {// all menus will extend this class?
     public abstract List<MenuItem> mainCourse();
