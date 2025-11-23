@@ -36,6 +36,22 @@ class KidsMenuFactory extends MenuFactory {
     public List<MenuItem> getDesserts() { }
     public List<MenuItem> getBeverages() { }
 }
+
+class DessertsMenuFactory extends MenuFactory {
+    public List<MenuItem> getStarters() { }
+    public List<MenuItem> getMainCourse() { }
+    public List<MenuItem> getDesserts() { }
+    public List<MenuItem> getBeverages() { }
+}
+class BeveragesMenuFactory extends MenuFactory {
+    public List<MenuItem> getStarters() { }
+    public List<MenuItem> getMainCourse() { }
+    public List<MenuItem> getDesserts() { }
+    public List<MenuItem> getBeverages() { }
+}
+
+
+
 abstract class MenuType {// all menus will extend this class?
     public abstract List<MenuItem> mainCourse();
     public abstract List<MenuItem> toppings();
