@@ -13,41 +13,41 @@ abstract class MenuFactory {
     public abstract List<MenuItem> getDesserts();
     public abstract List<MenuItem> getBeverages();
 
-    public static MenuFactory getFactory(String menuType) { }
+    public static MenuFactory getFactory(String menuType) { return new VegetarianMenuFactory();}
 }
 
 class VegetarianMenuFactory extends MenuFactory {
-    public List<MenuItem> getStarters() { }
-    public List<MenuItem> getMainCourse() { }
-    public List<MenuItem> getDesserts() { }
-    public List<MenuItem> getBeverages() { }
+    public List<MenuItem> getStarters() { return null; }
+    public List<MenuItem> getMainCourse() { return null; }
+    public List<MenuItem> getDesserts() { return null; }
+    public List<MenuItem> getBeverages() { return null; }
 }
 
 class NonVegetarianMenuFactory extends MenuFactory {
-    public List<MenuItem> getStarters() { }
-    public List<MenuItem> getMainCourse() { }
-    public List<MenuItem> getDesserts() { }
-    public List<MenuItem> getBeverages() { }
+    public List<MenuItem> getStarters() { return null; }
+    public List<MenuItem> getMainCourse() { return null; }
+    public List<MenuItem> getDesserts() { return null; }
+    public List<MenuItem> getBeverages() { return null; }
 }
 
 class KidsMenuFactory extends MenuFactory {
-    public List<MenuItem> getStarters() { }
-    public List<MenuItem> getMainCourse() { }
-    public List<MenuItem> getDesserts() { }
-    public List<MenuItem> getBeverages() { }
+    public List<MenuItem> getStarters() { return null; }
+    public List<MenuItem> getMainCourse() { return null; }
+    public List<MenuItem> getDesserts() { return null; }
+    public List<MenuItem> getBeverages() { return null; }
 }
 
 class DessertsMenuFactory extends MenuFactory {
-    public List<MenuItem> getStarters() { }
-    public List<MenuItem> getMainCourse() { }
-    public List<MenuItem> getDesserts() { }
-    public List<MenuItem> getBeverages() { }
+    public List<MenuItem> getStarters() { return null; }
+    public List<MenuItem> getMainCourse() { return null; }
+    public List<MenuItem> getDesserts() { return null; }
+    public List<MenuItem> getBeverages() { return null; }
 }
 class BeveragesMenuFactory extends MenuFactory {
-    public List<MenuItem> getStarters() { }
-    public List<MenuItem> getMainCourse() { }
-    public List<MenuItem> getDesserts() { }
-    public List<MenuItem> getBeverages() { }
+    public List<MenuItem> getStarters() { return null; }
+    public List<MenuItem> getMainCourse() { return null; }
+    public List<MenuItem> getDesserts() { return null; }
+    public List<MenuItem> getBeverages() { return null; }
 }
 
 
@@ -72,7 +72,7 @@ class MenuDisplay {
 
         System.out.print("Enter choice (1-3): ");
     }
-    public static void fullMenu() {
+    public static void fullMenu(MenuFactory factory) {
         System.out.println("\n--- Full Menu ---");
         for (MenuItem item : getMenuItems()) {
 
@@ -101,9 +101,8 @@ public class Restaurant {
 
             default -> { System.out.println("Invalid."); yield ""; }
         };
-
-        MenuDisplay.fullMenu();
-
+        MenuFactory factory = MenuFactory.getFactory(menuType);
+        MenuDisplay.fullMenu(factory);
         System.out.println("\nMenu displayed successfully!");
         sc.close();
     }
