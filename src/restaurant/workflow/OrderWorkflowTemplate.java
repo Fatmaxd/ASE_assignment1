@@ -14,7 +14,6 @@ public abstract class OrderWorkflowTemplate {
     }
 
     public final OrderResult execute(OrderBuilder builder, PaymentStrategy paymentStrategy) {
-        displayMenu();
         collectCustomerDetails(builder);
         customizeOrder(builder);
         OrderResult result = facade.process(builder, paymentStrategy);
@@ -37,4 +36,3 @@ public abstract class OrderWorkflowTemplate {
                 result.order().getCustomerName());
     }
 }
-

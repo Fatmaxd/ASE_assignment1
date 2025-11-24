@@ -5,7 +5,6 @@ import java.util.List;
 
 abstract class BaseMenuFactory implements MenuFactory {
     protected List<MenuItem> items(MenuItem... items) {
-        return List.of(items);
+        return Arrays.asList(items);
     }
 }
-

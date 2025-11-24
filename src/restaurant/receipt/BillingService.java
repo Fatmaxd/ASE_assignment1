@@ -1,6 +1,7 @@
 package restaurant.receipt;
 
 import restaurant.discount.DiscountEngine;
+import restaurant.discount.DiscountStrategy;
 import restaurant.order.Order;
 
 import java.util.List;
@@ -33,4 +34,3 @@ public final class BillingService {
         return new BillingSummary(subtotal, discountTotal, tax, grandTotal, discountNames);
     }
 }
-
